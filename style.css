@@ -1,0 +1,110 @@
+* {
+    font-family: roboto;
+}
+
+.container {
+    background-color: rgb(240, 222, 120);
+    height: 100vh;
+    width: 100%;
+    
+
+}
+
+.pageTitle {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding-top: 5rem;
+
+    
+}
+
+.pageTitle>h1 {
+    font-size: 5rem;
+}
+
+#newBook {
+    background-color: black;
+    color: rgb(240, 222, 120);
+    font-size: 1.5rem;
+    margin-left: 45vw;
+    width: 15vw;
+    height: 10vh;
+    border-radius: 4px;
+    box-shadow: 2px 2px 1px 1px rgb(41, 41, 41);
+
+}
+
+#newBook:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+}
+
+.bookList {
+    background-color: rgb(209, 209, 209);
+    margin-top: 2vh;
+}
+
+.addedBook {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.bg-modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.modal-content {
+    width: 40vw;
+    height: 60vh;
+    background-color: white;
+    border-radius: 4px;
+    padding: 20px;
+    position: relative;
+
+}
+
+.formImg {
+    margin-left: 42.5%;
+}
+
+.formInput {
+    width: 75%;
+    height: 3.5rem;
+    margin: 9px;
+    padding-left: 4rem;
+    
+}
+
+.formInputSelect {
+    width: 90%;
+    height: 4rem;
+    margin: 9px;
+    padding-left: 4rem;
+}
+
+.formButton {
+    width: 8rem;
+    height: 3rem;
+    margin-left: 36.5%;
+    margin-top: 5%;
+}
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    transform: rotate(45deg);
+    font-size: 3rem;
+    cursor: pointer;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+  href="https://fonts.googleapis.com/css?family=Roboto">
+</head>
+<body>
+    <div class="container">
+        <div class="pageTitle">
+            <img src="/img/bookshelf.svg" height="200" alt="">
+            <h1>Library</h1>
+        </div>
+        <div class="container">
+            <button type="button" id="newBook">NEW BOOK +</button>
+            <div class="bookList">
+                <div class="addedBook">
+                    <h3>Author</h3>
+                    <h3>Title</h3>
+                    <h3>Pages</h3>
+                    <h3>Read</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal Section-->
+    <div class="bg-modal">
+        <div class="modal-content">
+            <div class="close">+</div>
+
+            <img class="formImg" src="/img/bookshelf.svg" width= "70" alt="">
+
+            <form action="" class="addBookForm">
+                
+                <input type="text" placeholder="Author" id="author" class="formInput">
+
+                <input type="text" placeholder="Title" id="title" class="formInput">
+
+                <input type="text" placeholder="How many pages"
+                id="pages" class="formInput">
+
+                
+                <select name="status" id="status" class="formInputSelect">
+                    <option value="read">Read</option>
+                    <option value="not-read">Not read</option>
+                </select>
+
+                <button type="submit" class="formButton">Add Book +</button>
+
+
+            </form>
+
+        </div>
+    </div>
+    
+</body>
+<script src="script.js"></script>
+</html>
