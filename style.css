@@ -108,3 +108,17 @@
     font-size: 3rem;
     cursor: pointer;
 }
+
+.forbooks{
+    padding: .5rem;
+    display: flex;
+    margin: 80px;
+}
+.books {
+    color: black;
+    background-color: beige;
+    border-radius: 6px;
+    margin: 20px 50px 50px 20px;
+    display: flex;
+    
+}
