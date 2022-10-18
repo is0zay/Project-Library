@@ -12,11 +12,11 @@
 <body>
     <div class="container">
         <div class="pageTitle">
-            <img src="/img/bookshelf.svg" height="200" alt="">
+            <img src="../img/bookshelf.svg" height="200" alt="">
             <h1>Library</h1>
         </div>
         <div class="container">
-            <button type="button" id="newBook">NEW BOOK +</button>
+            <button class="btn add-book" type="button" id="newBook">NEW BOOK +</button>
             <div class="forbooks">
                 <div class="books"></div>
             </div>
@@ -24,36 +24,70 @@
     </div>
 
     <!--Modal Section-->
-    <!--
-    <div class="bg-modal">
+    
+    <div class="modal" id="modal">
         <div class="modal-content">
             <div class="close">+</div>
+            <div class="modal-form">
+                <h1 class="form-title"></h1>
+                <img class="formImg" src="/img/bookshelf.svg" width= "70" alt="">
 
-            <img class="formImg" src="/img/bookshelf.svg" width= "70" alt="">
+                <form class="addBookForm">
+                    <div class="modal-input-field">
+                        <label class="modal-container" for="title">Title:</label>
+                        <input 
+                        type="text" 
+                        id="title" 
+                        class="formInput"
+                        name="title"
+                        >
+                    </div>
+                        
+                    <div class="modal-input-field">
+                        <label class="modal-container" for="author">Author:</label>
+                        <input 
+                        type="text" 
+                        id="author" 
+                        class="formInput"
+                        name="author"
+                        >
+                    </div>
 
-            <form action="" class="addBookForm">
-                
-                <input type="text" placeholder="Author" id="author" class="formInput">
+                    <div class="modal-input-field">
+                        <label class="modal-container" for="pages">Pages:</label>
+                        <input 
+                        type="number" 
+                        min="0"
+                        id="pages" 
+                        class="formInput"
+                        name= "pages"
+                        >
+                    </div>
 
-                <input type="text" placeholder="Title" id="title" class="formInput">
+                    <div class="modal-input-field">
+                        <span class="modal-read">Read?</span>
+                        <label class="modal-container">
+                            <input 
+                            type="checkbox"
+                            name="book-read"
+                            id="book-read"
+                            class="checkmark"
+                            name="read"
+                            >
+                        </label>
+                    </div>
 
-                <input type="text" placeholder="How many pages"
-                id="pages" class="formInput">
+                    <div class="submit-modal-form">
+                        <button type="submit" class="formButton"></button>
+                    </div>
+                    
+                </form>
 
-                
-                <select name="status" id="status" class="formInputSelect">
-                    <option value="read">Read</option>
-                    <option value="not-read">Not read</option>
-                </select>
-
-                <button type="submit" class="formButton">Add Book +</button>
-
-
-            </form>
+            </div>
 
         </div>
     </div>
-    -->
+    
     
 </body>
 <script src="script.js"></script>
