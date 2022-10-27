@@ -32,13 +32,24 @@ addBook.addEventListener('click', () => {
     document.querySelector('.formButton').textContent = "Add";
 });
 
+function fillOutEditForm(book){
+    modal.style.display = 'block';
+    document.querySelector('.form-title').textContent = 'Edit Book';
+    document.querySelector('.addBookForm').setAttribute('id', book.id);
+    document.querySelector('.formButton').textContent = 'Edit';
+    document.querySelector('#book-title').value = book.title || "";
+    document.querySelector('#book-author').value = book.author || "";
+    document.querySelector('#book-pages').value = book.pages || "";
+    document.querySelector('#book-read').checked = book.read;
+}
+
 function createEditIcon(book) {
     
     const editIcon = document.createElement('img');
     editIcon.src = '../img/pencil.svg';
     editIcon.setAttribute('class', 'edit-icon')
-    editIcon.addEventListener('click', (e) => {
-         console.log(book);
+    editIcon.addEventListener('click', () => {
+         fillOutEditForm(book);
     });
     return editIcon
 }
@@ -82,24 +93,37 @@ addBookForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const data = new FormData(e.target);
-    let newB = {};
-    for(let [name,value] of data) {
+    let newBook = {};
+    for(let [name, value] of data) {
         if(name === 'book-read'){
-            newB['book-read'] = true;
+            newBook['book-read'] = true;
         }else {
-            newB[name] = value || "";
+            newBook[name] = value || "";
         }
     }
 
-    if(!newB['book-read']){
-        newB['book-read'] = false
+    if(!newBook['book-read']){
+        newBook['book-read'] = false
     }
+    if(document.querySelector('.form-title').textContent === 'Edit Book') {
+        let id = e.target.id;
+        let editBook = myLibrary.filter((book) => book.id == id)[0];
+        editBook.title = newBook["book-title"];
+        editBook.author = newBook["book-author"];
+        editBook.pages = newBook["book-pages"];
+        editBook.read = newBook["book-read"];
+        saveAndRenderBooks();
+
+    }else {
     addToLibrary(
-        newB['title'],
-        newB['author'],
-        newB['pages'],
-        newB['read']
+        newBook['book-title'],
+        newBook['book-author'],
+        newBook['book-pages'],
+        newBook['book-read']
         );
+
+    }
+
     addBookForm.reset();
     modal.style.display = 'none';
 });
@@ -122,11 +146,11 @@ function createBookElement(el, content, className) {
 }
 
 // function to create an input with event listener
-function createReadElement(bookItem,book) {
-    const read = document.createElement('div');
+function createReadElement(bookItem, book) {
+    let read = document.createElement('div');
     read.setAttribute('class', 'book-read');
-    read.appendChild(createBookElement("h1", "Read?", "book-read-title"));
-    const input = document.createElement('input');
+    read.appendChild(createBookElement("h1", "Read ?", "book-read-title"));
+    let input = document.createElement('input');
     input.type = 'checkbox';
     input.addEventListener('click', (e) => {
         if(e.target.checked){
@@ -145,7 +169,7 @@ function createReadElement(bookItem,book) {
     });
     if(book.read = true) {
         input.checked = true;
-        bookItem.setAttribute('class', 'read-checked');
+        bookItem.setAttribute('class', 'card book read-checked');
 
     }
     read.appendChild(input);
@@ -170,7 +194,9 @@ function createBookItem(book, index) {
 
     bookItem.appendChild(createBookElement('h1', `Pages:` + `${book.pages}`, "book-pages"));
 
-    bookItem.appendChild(createReadElement(bookItem,book)); 
+   
+
+    bookItem.appendChild(createReadElement(bookItem, book)); 
     bookItem.appendChild(createBookElement('button', 'X', 'delete'));
 
     

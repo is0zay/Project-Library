@@ -246,3 +246,7 @@
     align-items: center;
     justify-content: center;
 }
+
+.book-read-title {
+    margin-right: 5px;
+  }
